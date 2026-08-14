@@ -1,15 +1,13 @@
-import { randomUUID } from 'node:crypto'
+import { Entity } from '../../core/entities/entity'
 
-export class Instructor {
-    public id: string
-    public name: string
+interface InstructorProps {
+    name: string
+}
+
+export class Instructor extends Entity<InstructorProps>{
 
     // Se eu chamar o método constructor passando o id, quer dizer que eu to querendo
-    // criar uma referência pra um instrutor que já existe na aplicação que tem AQUELE id
-    // porém se eu não passar um id quer dizer que eu to querendo um instrutor do total zero 
-
-    constructor(name: string, id?: string) {
-        this.name = name
-        this.id = id ?? randomUUID()
-    }
+    // criar uma referência pra um instrutor que já existe na aplicação, que tem AQUELE id
+    // porém se eu não passar um id quer dizer que eu to querendo CRIAR um instrutor do total zero 
+    
 }
