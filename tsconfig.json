@@ -4,12 +4,17 @@
     // File Layout
     // "rootDir": "./src",
     // "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "esnext",
+    "moduleResolution": "bundler",
     "target": "es2020",
-    "types": ["node"],
+    "types": ["node", "vitest/globals"],
     // For nodejs:
     // "lib": ["esnext"],
     // and npm install -D @types/node
@@ -22,6 +27,7 @@
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
+    "ignoreDeprecations": "6.0",
 
     // Style Options
     // "noImplicitReturns": true,
@@ -38,7 +44,7 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
