@@ -1,30 +1,30 @@
 export class Slug {
-    public value: string
+  public value: string
 
-    constructor(value: string) {
-        this.value = value
-    }
+  constructor(value: string) {
+    this.value = value
+  }
 
-    /**
-     * Receives a string and normalize it as a slug
-     * 
-     * Example: "An example title" => "an-example-title"
-     * 
-     * @param text {string}
-     */
+  /**
+   * Receives a string and normalize it as a slug
+   *
+   * Example: "An example title" => "an-example-title"
+   *
+   * @param text {string}
+   */
 
-    static createFromText(text: string) {
-        // Remove qualquer tipo de acentuação da string e devolve sem acentuação nenhuma
-        const slugText = text
-            .normalize("NFKD")
-            .toLowerCase()
-            .trim() // remove qualquer espaço, tanto da direita quanto da esquerda
-            .replace(/\s+/g, '-')
-            .replace(/[^\w-]+/g, '')
-            .replace(/_/g, '-')
-            .replace(/--+/g, '-')
-            .replace(/-$/g, '')
+  static createFromText(text: string) {
+    // Remove qualquer tipo de acentuação da string e devolve sem acentuação nenhuma
+    const slugText = text
+      .normalize('NFKD')
+      .toLowerCase()
+      .trim() // remove qualquer espaço, tanto da direita quanto da esquerda
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]+/g, '')
+      .replace(/_/g, '-')
+      .replace(/--+/g, '-')
+      .replace(/-$/g, '')
 
-        return new Slug(slugText)
-    }
+    return new Slug(slugText)
+  }
 }
